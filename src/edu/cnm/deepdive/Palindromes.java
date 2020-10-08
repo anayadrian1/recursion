@@ -7,4 +7,10 @@ public class Palindromes {
         && testRecursive(phrase.substring(1, phrase.length() - 1));
   }
 
+  public static boolean testDenormalized(String word) {
+    String denormal = word.replaceAll("[\\W_]+", "").toLowerCase();
+    return testRecursive(denormal);
+  }
+
+
 }

@@ -14,6 +14,7 @@ class PalindromesTest {
       "x",
       ""
   };
+
   static final boolean[] expectedValues = {
       true,
       false,
@@ -23,10 +24,33 @@ class PalindromesTest {
       true
   };
 
+  static final String[] testValues = {
+      "radar",
+      "Radar",
+      "A man, a plan, a canal - Panama!",
+      "A man, a plan, a dam - Hoover!",
+      "aBbA"
+  };
+
+  static final boolean[] actualValues = {
+      true,
+      true,
+      true,
+      false,
+      true
+  };
+
   @Test
   void computeRecursive() {
     for (int i = 0; i < inputValues.length; i++) {
       assertEquals(expectedValues[i], Palindromes.testRecursive(inputValues[i]));
+    }
+  }
+
+  @Test
+  void testDenormalized() {
+    for (int i = 0; i < testValues.length; i++) {
+      assertEquals(actualValues[i], Palindromes.testDenormalized(testValues[i]));
     }
   }
 }

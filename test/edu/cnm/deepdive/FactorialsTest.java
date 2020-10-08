@@ -2,6 +2,7 @@ package edu.cnm.deepdive;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 
 class FactorialsTest {
@@ -32,11 +33,26 @@ class FactorialsTest {
       assertEquals(expected, actual);
 */
 
-      assertEquals(expectedValues[i], Factorials.computeRecursive(inputValues[i]));
+      assertEquals(expectedValues[i],
+          Factorials.computeRecursive(BigInteger.valueOf(inputValues[i])).longValue());
     }
   }
+
   @Test
   void computeRecursive_exception() {
-    assertThrows(IllegalArgumentException.class, () -> Factorials.computeRecursive(-1));
+    assertThrows(IllegalArgumentException.class,
+        () -> Factorials.computeRecursive(BigInteger.ONE.negate()));
+  }
+
+  @Test
+  void computerIterative() {
+    for (int i = 0; i < inputValues.length; i++) {
+      assertEquals(expectedValues[i], Factorials.computeIterative(inputValues[i]));
+    }
+  }
+
+  @Test
+  void computeIterative_exception() {
+    assertThrows(IllegalArgumentException.class, () -> Factorials.computeIterative(-1));
   }
 }

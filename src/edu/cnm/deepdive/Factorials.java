@@ -1,12 +1,27 @@
 package edu.cnm.deepdive;
 
+import java.math.BigInteger;
+
 public class Factorials {
 
-  public static long computeRecursive(int n) {
+  public static BigInteger computeRecursive(BigInteger n) {
+    if (n.compareTo(BigInteger.ZERO) < 0) {
+      throw new IllegalArgumentException();
+    }
+    return (n.compareTo(BigInteger.ONE) <= 0) ?
+        BigInteger.ONE :
+        (n.multiply(computeRecursive(n.subtract(BigInteger.ONE))));
+  }
+
+  public static long computeIterative(int n) {
     if (n < 0) {
       throw new IllegalArgumentException();
     }
-    return (n <= 1) ? 1 : (n * computeRecursive(n - 1));
+    long factorial = 1;
+    for(int i = n; i > 0; i--) {
+      factorial *= i;
+    }
+    return factorial;
   }
 
 }
