@@ -53,4 +53,11 @@ class PalindromesTest {
       assertEquals(actualValues[i], Palindromes.testDenormalized(testValues[i]));
     }
   }
+
+  @Test
+  void testIterative() {
+    for (int i = 0; i < inputValues.length; i++) {
+      assertEquals(expectedValues[i], Palindromes.testIterative(inputValues[i]));
+    }
+  }
 }

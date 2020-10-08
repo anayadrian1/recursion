@@ -12,5 +12,12 @@ public class Palindromes {
     return testRecursive(denormal);
   }
 
-
+  public static boolean testIterative(String phrase) {
+    for (int i = 0; i < phrase.length(); i++) {
+      if (phrase.charAt(i) != phrase.charAt(phrase.length() - i - 1)) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
