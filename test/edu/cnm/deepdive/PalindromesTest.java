@@ -4,9 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class to test the code from {@link Palindromes} to check if strings are palindromes.
+ */
 class PalindromesTest {
 
-  static final String[] inputValues = {
+  private static final String[] inputValues = {
       "radar",
       "sonar",
       "abba",
@@ -15,7 +18,7 @@ class PalindromesTest {
       ""
   };
 
-  static final boolean[] expectedValues = {
+  private static final boolean[] expectedValues = {
       true,
       false,
       true,
@@ -24,7 +27,7 @@ class PalindromesTest {
       true
   };
 
-  static final String[] testValues = {
+  private static final String[] testValues = {
       "radar",
       "Radar",
       "A man, a plan, a canal - Panama!",
@@ -32,7 +35,7 @@ class PalindromesTest {
       "aBbA"
   };
 
-  static final boolean[] actualValues = {
+  private static final boolean[] actualValues = {
       true,
       true,
       true,
@@ -40,6 +43,9 @@ class PalindromesTest {
       true
   };
 
+  /**
+   * Tests for a palindrome using recursion from {@link Palindromes#testRecursive(String)}
+   */
   @Test
   void computeRecursive() {
     for (int i = 0; i < inputValues.length; i++) {
@@ -47,6 +53,10 @@ class PalindromesTest {
     }
   }
 
+  /**
+   * Tests to see if the string is properly converted to all lowercase with no special characters
+   * using {@link Palindromes#testDenormalized(String)}
+   */
   @Test
   void testDenormalized() {
     for (int i = 0; i < testValues.length; i++) {
@@ -54,6 +64,9 @@ class PalindromesTest {
     }
   }
 
+  /**
+   * Tests for a palindrome using iteration from {@link Palindromes#testIterative(String)}
+   */
   @Test
   void testIterative() {
     for (int i = 0; i < inputValues.length; i++) {
